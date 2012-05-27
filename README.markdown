@@ -3,6 +3,8 @@ css-prefix
 
 Insert a prefix into css documents.
 
+[![build status](https://secure.travis-ci.org/substack/css-prefix.png)](http://travis-ci.org/substack/css-prefix)
+
 example
 =======
 
