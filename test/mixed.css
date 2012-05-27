@@ -1,0 +1,16 @@
+.body {
+    color: green;
+    padding: 15px;
+}
+
+div#robots .beep.boop {
+    text-align: center;
+}
+
+#a.b > .bling.blong {
+    margin: auto;
+}
+
+a.clickable[href="/x.y.z"]:link, a.clickable[href="/x.y.z"]:visited {
+    color: cyan;
+}
