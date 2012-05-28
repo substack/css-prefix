@@ -48,11 +48,17 @@ methods
 var insertPrefix = require('css-prefix')
 ```
 
-insertPrefix(prefix, src)
--------------------------
+insertPrefix(opts, src)
+-----------------------
 
-Insert the string `prefix` before every class and id in the css source string
-`src`, returning the transformed source.
+Insert the string `opts.prefix` before every class and id in the css source
+string `src`, returning the transformed source.
+
+If `opts.elementClass` is given, add this class to all element identifiers. This
+is useful so that your `h1 { color: green; }` declarations don't leak into the
+environment.
+
+If `opts` is a string, treat `opts` as `opts.prefix`.
 
 install
 =======

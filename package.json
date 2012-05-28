@@ -1,6 +1,6 @@
 {
     "name" : "css-prefix",
-    "version" : "0.0.0",
+    "version" : "0.0.1",
     "description" : "add a prefix to all classes and identifiers in a stylesheet",
     "main" : "index.js",
     "directories" : {
