@@ -15,23 +15,23 @@ var dst = {
 };
 
 test('mixed', function (t) {
-    t.equal(dst.mixed, insertPrefix('pre-', src.mixed));
+    t.equal(insertPrefix('pre-', src.mixed), dst.mixed);
     t.end();
 });
 
 test('tags', function (t) {
-    t.equal(dst.tags, insertPrefix({
+    t.equal(insertPrefix({
         prefix : 'zzz-',
         elementClass : 'xxx',
-    }, src.tags));
+    }, src.tags), dst.tags);
     t.end();
 });
 
 test('parent', function (t) {
-    t.equal(dst.parent, insertPrefix({
+    t.equal(insertPrefix({
         prefix : 'zzz-',
         parentClass : 'WOWSY',
         elementClass : 'xxx',
-    }, src.parent));
+    }, src.parent), dst.parent);
     t.end();
 });
