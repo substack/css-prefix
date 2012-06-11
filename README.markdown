@@ -58,6 +58,8 @@ If `opts.elementClass` is given, add this class to all element identifiers. This
 is useful so that your `h1 { color: green; }` declarations don't leak into the
 environment.
 
+If `opts.parentClass` is given, add an ancestor class to every rule.
+
 If `opts` is a string, treat `opts` as `opts.prefix`.
 
 install
