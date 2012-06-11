@@ -27,5 +27,16 @@ module.exports = function (opts, src) {
         }
     });
     
+    if (opts.parentClass) {
+        traverse(tree).forEach(function (node) {
+            if (node === 'simpleselector') {
+                this.parent.node.splice(1, 0,
+                    [ 'clazz', [ 'ident', opts.parentClass ] ],
+                    [ 's', ' ' ]
+                );
+            }
+        });
+    }
+    
     return cssp.translate(tree);
 };
