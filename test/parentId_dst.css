@@ -1,0 +1,9 @@
+#WOWSYID div.xxx { color: red; }
+
+#WOWSYID h1.xxx,#WOWSYID  h2.xxx { font-weight: bold; }
+
+#WOWSYID .zzz-bleep b.xxx .zzz-foo { color: black; }
+
+#WOWSYID h1.xxx.zzz-beep { text-decoration: underline; }
+
+#WOWSYID #zzz-blop .zzz-bleep .zzz-foo { border-color: yellow; }

@@ -11,7 +11,9 @@ var src = {
 var dst = {
     mixed : fs.readFileSync(__dirname + '/mixed_dst.css', 'utf8'),
     tags : fs.readFileSync(__dirname + '/tags_dst.css', 'utf8'),
-    parent : fs.readFileSync(__dirname + '/parent_dst.css', 'utf8'),
+    parentClass : fs.readFileSync(__dirname + '/parentClass_dst.css', 'utf8'),
+    parentId : fs.readFileSync(__dirname + '/parentId_dst.css', 'utf8'),
+    parentClassId : fs.readFileSync(__dirname + '/parentClassId_dst.css', 'utf8'),
 };
 
 test('mixed', function (t) {
@@ -27,11 +29,30 @@ test('tags', function (t) {
     t.end();
 });
 
-test('parent', function (t) {
+test('parentClass', function (t) {
     t.equal(insertPrefix({
         prefix : 'zzz-',
         parentClass : 'WOWSY',
         elementClass : 'xxx',
-    }, src.parent), dst.parent);
+    }, src.parent), dst.parentClass);
+    t.end();
+});
+
+test('parentId', function (t) {
+    t.equal(insertPrefix({
+        prefix : 'zzz-',
+        parentId : 'WOWSYID',
+        elementClass : 'xxx',
+    }, src.parent), dst.parentId);
+    t.end();
+});
+
+test('parentId & parentClass', function (t) {
+    t.equal(insertPrefix({
+        prefix : 'zzz-',
+        parentClass : 'WOWSYCZZ',
+        parentId : 'WOWSYID',
+        elementClass : 'xxx',
+    }, src.parent), dst.parentClassId);
     t.end();
 });

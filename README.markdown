@@ -60,6 +60,10 @@ environment.
 
 If `opts.parentClass` is given, add an ancestor class to every rule.
 
+If `opts.parentId` is given, add an ancestor id to every rule.
+
+If both `opts.parentClass` and `opts.parentId` are given, they will be the same ancestor (`#parent-id.parent-class`).
+
 If `opts` is a string, treat `opts` as `opts.prefix`.
 
 install

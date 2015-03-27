@@ -5,3 +5,5 @@ h1, h2 { font-weight: bold; }
 .bleep b .foo { color: black; }
 
 h1.beep { text-decoration: underline; }
+
+#blop .bleep .foo { border-color: yellow; }

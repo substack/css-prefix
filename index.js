@@ -27,16 +27,28 @@ module.exports = function (opts, src) {
         }
     });
     
+    var parentArgsArray;
+
     if (opts.parentClass) {
+        parentArgsArray = [
+            [ 'clazz', [ 'ident', opts.parentClass ] ]
+        ];
+    }
+
+    if (opts.parentId) {
+        parentArgsArray = parentArgsArray || [];
+        parentArgsArray.unshift([ 'shash', opts.parentId ]);
+    }
+
+    if (parentArgsArray) {
+        parentArgsArray = [1, 0].concat(parentArgsArray)
+        parentArgsArray.push([ 's', ' ' ]);
         traverse(tree).forEach(function (node) {
             if (node === 'simpleselector') {
-                this.parent.node.splice(1, 0,
-                    [ 'clazz', [ 'ident', opts.parentClass ] ],
-                    [ 's', ' ' ]
-                );
+                this.parent.node.splice.apply(this.parent.node, parentArgsArray);
             }
         });
     }
-    
+
     return cssp.translate(tree);
 };
