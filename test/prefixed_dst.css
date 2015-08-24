@@ -1,0 +1,16 @@
+.pre-body {
+    color: green;
+    padding: 15px;
+}
+
+div#pre-robots .pre-beep.pre-boop {
+    text-align: center;
+}
+
+#pre-a.pre-b > .pre-bling.pre-blong {
+    margin: auto;
+}
+
+a.pre-clickable[href="/x.y.z"]:link, a.pre-clickable[href="/x.y.z"]:visited {
+    color: cyan;
+}

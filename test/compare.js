@@ -4,14 +4,16 @@ var fs = require('fs');
 
 var src = {
     mixed : fs.readFileSync(__dirname + '/mixed.css', 'utf8'),
+    prefixed : fs.readFileSync(__dirname + '/prefixed.css', 'utf8'),
     tags : fs.readFileSync(__dirname + '/tags.css', 'utf8'),
-    parent : fs.readFileSync(__dirname + '/parent.css', 'utf8'),
+    parent : fs.readFileSync(__dirname + '/parent.css', 'utf8')
 };
 
 var dst = {
     mixed : fs.readFileSync(__dirname + '/mixed_dst.css', 'utf8'),
+    prefixed : fs.readFileSync(__dirname + '/prefixed_dst.css', 'utf8'),
     tags : fs.readFileSync(__dirname + '/tags_dst.css', 'utf8'),
-    parent : fs.readFileSync(__dirname + '/parent_dst.css', 'utf8'),
+    parent : fs.readFileSync(__dirname + '/parent_dst.css', 'utf8')
 };
 
 test('mixed', function (t) {
@@ -20,10 +22,11 @@ test('mixed', function (t) {
 });
 
 test('tags', function (t) {
-    t.equal(insertPrefix({
-        prefix : 'zzz-',
-        elementClass : 'xxx',
-    }, src.tags), dst.tags);
+    var result = insertPrefix({
+        prefix: 'zzz-',
+        elementClass: 'xxx',
+    }, src.tags);
+    t.equal(result, dst.tags);
     t.end();
 });
 
@@ -33,5 +36,14 @@ test('parent', function (t) {
         parentClass : 'WOWSY',
         elementClass : 'xxx',
     }, src.parent), dst.parent);
+    t.end();
+});
+
+test('prefixed', function (t) {
+    var result = insertPrefix({
+        prefix: 'pre-',
+        ignorePrefixed: true
+    }, src.prefixed);
+    t.equal(result, dst.prefixed);
     t.end();
 });
