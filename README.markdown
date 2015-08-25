@@ -62,6 +62,8 @@ If `opts.parentClass` is given, add an ancestor class to every rule.
 
 If `opts` is a string, treat `opts` as `opts.prefix`.
 
+If `opts.ignorePrefixed` is `true`, each rule with the specified prefix already within the source will be ignored. (Default: false)
+
 install
 =======
 
