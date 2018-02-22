@@ -6,12 +6,14 @@ var src = {
     mixed : fs.readFileSync(__dirname + '/mixed.css', 'utf8'),
     tags : fs.readFileSync(__dirname + '/tags.css', 'utf8'),
     parent : fs.readFileSync(__dirname + '/parent.css', 'utf8'),
+    ignoredList : fs.readFileSync(__dirname + '/ignored_list.css', 'utf8'),
 };
 
 var dst = {
     mixed : fs.readFileSync(__dirname + '/mixed_dst.css', 'utf8'),
     tags : fs.readFileSync(__dirname + '/tags_dst.css', 'utf8'),
     parent : fs.readFileSync(__dirname + '/parent_dst.css', 'utf8'),
+    ignoredList : fs.readFileSync(__dirname + '/ignored_list_dst.css', 'utf8'),
 };
 
 test('mixed', function (t) {
@@ -33,5 +35,13 @@ test('parent', function (t) {
         parentClass : 'WOWSY',
         elementClass : 'xxx',
     }, src.parent), dst.parent);
+    t.end();
+});
+
+test('ignoredList', function (t) {
+    t.equal(insertPrefix({
+        prefix : 'pre-',
+        ignoredList: ['col-md-3', 'modal-body'],
+    }, src.ignoredList), dst.ignoredList);
     t.end();
 });
