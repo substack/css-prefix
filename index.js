@@ -7,15 +7,18 @@ module.exports = function (opts, src) {
     }
     
     var tree = cssp.parse(src);
+    var ignoredListSet = Array.isArray(opts.ignoredList);
     traverse(tree).forEach(function (node) {
         if (!Array.isArray(node)) return;
         
         if (node[0] === 'clazz' && node[1][0] === 'ident') {
+            if (ignoredListSet && opts.ignoredList.indexOf(node[1][1]) !== -1) return;
             if (node[1][1] !== opts.elementClass) {
                 node[1][1] = opts.prefix + node[1][1];
             }
         }
         else if (node[0] === 'shash') {
+            if (ignoredListSet && opts.ignoredList.indexOf(node[1]) !== -1) return;
             node[1] = opts.prefix + node[1];
         }
         else if (opts.elementClass && node[0] === 'ident'
