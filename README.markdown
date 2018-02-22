@@ -60,6 +60,8 @@ environment.
 
 If `opts.parentClass` is given, add an ancestor class to every rule.
 
+If `opts.ignoredList` is given, all entries from this array will be ignored.
+
 If `opts` is a string, treat `opts` as `opts.prefix`.
 
 install
